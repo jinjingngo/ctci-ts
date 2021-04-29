@@ -1,7 +1,10 @@
 import { TripleStack } from '../../src/chapter03/3.1.multiStack';
-describe(`chapter03 - 3.1 - TripleStack`, function() {
-  it('can push and pop value from middle stack correctly', function() {
-    const tripleStack: TripleStack = new TripleStack();
+describe(`chapter03 - 3.1 - TripleStack`, () => {
+  let tripleStack: TripleStack;
+  beforeEach(() => {
+    tripleStack = new TripleStack();
+  });
+  it('can push and pop value from middle stack correctly', () => {
     const stack: number[] = [];
     for (let i = 1; i < 100; i += 4) {
       const val = Math.trunc(Math.random() * 999999);
@@ -11,8 +14,7 @@ describe(`chapter03 - 3.1 - TripleStack`, function() {
     stack.reverse().forEach(v => expect(tripleStack.pop(2)).toBe(v));
   });
 
-  it('can push, peek and pop values from all 3 stack correctly', function() {
-    const tripleStack: TripleStack = new TripleStack();
+  it('can push, peek and pop values from all 3 stack correctly', () => {
     const stacks: Array<number[]> = [[], [], []];
     for (let j = 9; j > 0; --j) {
       for (let i = 1; i <= 3; ++i) {

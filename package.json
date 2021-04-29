@@ -2,6 +2,7 @@
   "version": "0.1.0",
   "license": "MIT",
   "main": "dist/index.js",
+  "type": "module",
   "typings": "dist/index.d.ts",
   "files": [
     "dist",
@@ -14,7 +15,7 @@
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test",
-    "lint": "tsdx lint",
+    "lint": "tsdx lint src test",
     "prepare": "tsdx build",
     "size": "size-limit",
     "analyze": "size-limit --why"
