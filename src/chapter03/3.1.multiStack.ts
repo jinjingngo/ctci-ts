@@ -8,7 +8,7 @@ export class TripleStack {
 
   public push(stack: number, value: number): void {
     const index: number = this.getLength(stack) * 3 + stack - 1;
-    this.stack[index] = value;
+    this.stack[index] = value ;
     ++this.lengths[stack - 1];
   }
 

@@ -9,7 +9,7 @@ for (const key in MinStacks) {
 
     it('min is undefined when stack is empty', () => {
       expect(stack.isEmpty()).toBe(true);
-      expect(stack.min()).toBe(undefined);
+      expect(stack.min()).toBe(Number.MAX_VALUE);
     });
 
     it('can push values in ascending order and min stays the same', () => {
@@ -24,7 +24,7 @@ for (const key in MinStacks) {
         expect(stack.pop()).toBe(v);
       });
 
-      expect(stack.min()).toBe(undefined);
+      expect(stack.min()).toBe(Number.MAX_VALUE);
     });
   });
 }

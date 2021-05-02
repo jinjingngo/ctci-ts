@@ -37,28 +37,26 @@ class StackWithMin extends Stack<any> {
     return super.pop().value;
   }
 
-  public min(): number | undefined {
+  public min(): number {
     if (this.isEmpty()) {
-      return undefined;
+      return Number.MAX_VALUE;
     }
     return this.peek()?.min;
   }
 }
 
 class StackWithMin2 extends Stack<number> {
-  private stack!: Stack<number>;
+  private stack: Stack<number> = new Stack<number>();
 
   constructor() {
     super();
-    this.stack = new Stack<number>();
   }
 
   public push(value: number): void {
-    if (value < (this.min() as number)) {
-      this.stack.push(value);
-    } else {
-      super.push(value);
+    if (value < this.min()) {
+      this.stack.push(value); // always push the min to the local stack
     }
+    super.push(value);
   }
 
   public pop(): number {
@@ -69,12 +67,16 @@ class StackWithMin2 extends Stack<number> {
     return value as number;
   }
 
-  private min(): number | undefined {
+  public peek(): number {
+    return this.stack.peek();
+  }
+
+  public min(): number {
     if (this.isEmpty()) {
-      return undefined;
+      return Number.MAX_VALUE;
     }
     return this.peek();
   }
 }
 
-export default [StackWithMin, StackWithMin2];
+export default [ StackWithMin, StackWithMin2 ];
