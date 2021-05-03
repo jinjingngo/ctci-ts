@@ -1,10 +1,10 @@
 import MinStacks from '../../src/chapter03/3.2.stackWithMin';
 
-for (const key in MinStacks) {
-  describe(`chapter03 - 3.2 - ${MinStacks[key].name}`, () => {
+for (const Stack of MinStacks) {
+  describe(`chapter03 - 3.2 - ${Stack.name}`, () => {
     let stack: any;
     beforeEach(() => {
-      stack = new MinStacks[key]();
+      stack = new Stack();
     });
 
     it('min is undefined when stack is empty', () => {
