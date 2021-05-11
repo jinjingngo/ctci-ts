@@ -7,7 +7,7 @@ class FixedMultiStack {
   constructor(stackSize: number) {
     this.stackCapacity = stackSize;
     this.values = new Array<number>(stackSize * this.numberOfStacks);
-    this.sizes = Array.from({ length: this.numberOfStacks }, _ => 0)//new Array<number>(this.numberOfStacks);
+    this.sizes = Array.from({ length: this.numberOfStacks }, _ => 0);
   }
 
   private indexOfTop(stackNum: number): number {

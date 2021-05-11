@@ -1,3 +1,4 @@
+/*eslint no-loop-func: "off"*/
 import MultiStacks from '../../src/chapter03/3.1.multiStack';
 for (const Stack of MultiStacks) {
   describe(`chapter03 - 3.1 - ${Stack.name}`, () => {
@@ -27,9 +28,7 @@ for (const Stack of MultiStacks) {
       }
 
       for (let i = 0; i < 3; ++i) {
-        stacks[i]
-          .reverse()
-          .forEach(v => expect(tripleStack.pop(i)).toBe(v));
+        stacks[i].reverse().forEach(v => expect(tripleStack.pop(i)).toBe(v));
         expect(tripleStack.isEmpty(i)).toBeTruthy();
       }
     });
