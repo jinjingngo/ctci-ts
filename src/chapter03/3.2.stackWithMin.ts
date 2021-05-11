@@ -48,10 +48,6 @@ class StackWithMin extends Stack<any> {
 class StackWithMin2 extends Stack<number> {
   private stack: Stack<number> = new Stack<number>();
 
-  constructor() {
-    super();
-  }
-
   public push(value: number): void {
     if (value < this.min()) {
       this.stack.push(value); // always push the min to the local stack
@@ -79,4 +75,4 @@ class StackWithMin2 extends Stack<number> {
   }
 }
 
-export default [ StackWithMin, StackWithMin2 ];
+export default [StackWithMin, StackWithMin2];
