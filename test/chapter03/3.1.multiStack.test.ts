@@ -7,7 +7,7 @@ for (const Stack of MultiStacks) {
     });
     it('can push and pop value from middle stack correctly', () => {
       const stack: number[] = [];
-      for (let i = 1; i < 100; i += 4) {
+      for (let i = 1; i < 100; i += 4) { 
         const val = Math.trunc(Math.random() * 999999);
         tripleStack.push(2, val);
         stack.push(val);

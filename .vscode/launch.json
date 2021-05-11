@@ -7,20 +7,24 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Test",
-      "program": "${workspaceRoot}/node_modules/jest/bin/jest.js",
-      "args": [
-        "--config",
-        "package.json",
+      "name": "Debug Jest Tests",
+      "runtimeArgs": [
+        "--inspect-brk",
+        "${workspaceRoot}/node_modules/.bin/jest",
         "--runInBand"
       ],
-      "runtimeArgs": [
-        "--nolazy"
-      ],
       "console": "internalConsole",
+      "internalConsoleOptions": "neverOpen",
+      "port": 9229,
       "env": {
         "NODE_ENV": "test"
-      }
+      },
+      "disableOptimisticBPs": true,
+      "smartStep": true, 
+      "skipFiles": [
+        "<node_internals>/**",
+        "node_modules/**"
+      ]
     }
   ]
 }
