@@ -13,7 +13,7 @@ describe('chapter 3 Queue', () => {
   it('can add 100 element and remove them in same order', () => {
     const seeds = Array.from({ length: 100 }, _ => Math.random() * 100);
     seeds.forEach(value => queue.add(value));
-    const [ first ] = seeds;
+    const [first] = seeds;
     expect(queue.peak()).toBe(first);
     seeds.forEach(value => expect(queue.remove()).toBe(value));
   });

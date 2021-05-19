@@ -1,10 +1,9 @@
 export default class Stack<T> {
-  private capacity: number;
-  private store: T[] = [];
+  private _store: T[] = [];
 
-  constructor (capacity: number) {
-    this.capacity = capacity;
-  }  
+  get store(): T[] {
+    return this._store;
+  }
 
   public push(value: T): void {
     this.store.push(value);
@@ -22,7 +21,7 @@ export default class Stack<T> {
     return this.store.length === 0;
   }
 
-  public isFull(): boolean {
-    return this.store.length === this.capacity;
+  public size(): number {
+    return this.store.length;
   }
 }
