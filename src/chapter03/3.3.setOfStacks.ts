@@ -1,4 +1,4 @@
-import Stack from './Stack';
+import LimitedStack from './LimitedStack';
 /**
  * SetOfStacks uses multiple smaller stacks to hold values. New stacks are
  * created or dropped as required.
@@ -10,21 +10,21 @@ import Stack from './Stack';
  */
 export default class SetOfStacks {
   private capacity: number;
-  private stackSet: Set<Stack<number>> = new Set<Stack<number>>();
+  private stackSet: Set<LimitedStack<number>> = new Set<LimitedStack<number>>();
 
   constructor (capacity: number) {
     if (!capacity) throw new Error('capacity is required');
     this.capacity = capacity;
   }
 
-  public getLastStack(): Stack<number> | undefined {
+  public getLastStack(): LimitedStack<number> | undefined {
     return [ ...this.stackSet ].pop();
   }
 
   public push(value: number): void {
     let stack = this.getLastStack();
     if (!stack || stack.isFull()) {
-      stack = new Stack<number>(this.capacity);
+      stack = new LimitedStack<number>(this.capacity);
       this.stackSet.add(stack);
     }
     stack.push(value);
@@ -55,7 +55,7 @@ export default class SetOfStacks {
     return stack.pop();
   }
 
-  private getStackByIndex(index: number): Stack<number> {
+  private getStackByIndex(index: number): LimitedStack<number> {
     return [ ...this.stackSet ][index];
   }
 };
