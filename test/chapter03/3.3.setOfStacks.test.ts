@@ -29,7 +29,7 @@ describe('chapter 03 3.3 - SetOfStacks', () => {
       return fold;
     }, []);
     feed.forEach(value => setStack.push(value));
-    const [ , middle ] = seeds;
+    const [, middle] = seeds;
     middle.reverse().forEach(value => expect(setStack.popAt(1)).toBe(value));
-  })
+  });
 });
