@@ -30,7 +30,7 @@ class DequeueExpensiveStackedQueue<T> {
 
   public peek(): T {
     this.shift(this.actualStack, this.tempStack);
-    const value = this.tempStack.store[0];
+    const value = this.tempStack.bottom();
     this.shift(this.tempStack, this.actualStack);
 
     return value;
@@ -77,7 +77,7 @@ class EequeueExpensiveStackedQueue<T> {
   }
 
   public peek(): T {
-    return this.actualStack.store[0];
+    return this.actualStack.bottom();
   }
 
   public dequeue(): T {

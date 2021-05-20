@@ -14,14 +14,18 @@ export default class Stack<T> {
   }
 
   public peek(): T {
-    return this.store[this.store.length - 1];
+    return this.store[this.size() - 1];
   }
 
   public isEmpty(): boolean {
-    return this.store.length === 0;
+    return this.size() === 0;
   }
 
   public size(): number {
     return this.store.length;
+  }
+
+  public bottom(): T {
+    return this.store[0];
   }
 }
