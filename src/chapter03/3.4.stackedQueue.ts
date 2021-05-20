@@ -36,11 +36,11 @@ class DequeueExpensiveStackedQueue<T> {
     return value;
   }
 
-  public dequeue(): T {
+  public dequeue(): T | undefined {
     this.shift(this.actualStack, this.tempStack);
     const value = this.tempStack.pop();
     this.shift(this.tempStack, this.actualStack);
-    return value as T;
+    return value;
   }
 }
 
@@ -80,8 +80,8 @@ class EequeueExpensiveStackedQueue<T> {
     return this.actualStack.bottom();
   }
 
-  public dequeue(): T {
-    return this.actualStack.pop() as T;
+  public dequeue(): T | undefined {
+    return this.actualStack.pop();
   }
 }
 
