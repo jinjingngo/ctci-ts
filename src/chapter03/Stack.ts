@@ -28,4 +28,8 @@ export default class Stack<T> {
   public bottom(): T {
     return this.store[0];
   }
+
+  public toArray(): Array<T> {
+    return [ ...this.store ];
+  }
 }
