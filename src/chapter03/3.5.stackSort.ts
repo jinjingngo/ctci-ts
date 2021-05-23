@@ -1,7 +1,7 @@
 import Stack from './Stack';
 
 /**
- * Sort the given stack in descending order and return that.
+ * Sort the given stack in ascending order and return that.
  * 
  * Time: O(N^2)
  * Space: O(N)
@@ -10,16 +10,20 @@ import Stack from './Stack';
  * @returns {Stack<Number>}
  */
 const sort = (stack: Stack<Number>): Stack<Number> => {
-  const switcher = new Stack<Number>();
+  const buffer = new Stack<Number>();
   while (!stack.isEmpty()) {
     const temp = stack.pop() as Number;
-    while (!switcher.isEmpty() && switcher.peek() > temp) {
-      stack.push(switcher.pop() as Number);
+    // push the greater value from buffer into stack
+    // no need to check buffer.peek() >= temp, 
+    // just check the greater case can save a round of stack.push();
+    while (!buffer.isEmpty() && buffer.peek() > temp) {
+      stack.push(buffer.pop() as Number);
     }
-    switcher.push(temp);
+    // push the temp value into he right space of buffer
+    buffer.push(temp);
   }
-  while(!switcher.isEmpty()) {
-    stack.push(switcher.pop() as Number);
+  while(!buffer.isEmpty()) {
+    stack.push(buffer.pop() as Number);
   }
   return stack;
 }

@@ -13,13 +13,13 @@ describe('chapter 03 - 3.5 stackSort', () => {
     });
   });
 
-  it('push into value and then peek value should be the same', () => {
+  it('pop value should be the same as the array iterator', () => {
     array.reverse().forEach(value => {
       expect(stack.pop()).toBe(value);
     });
   });
 
-  it('should be the same order as returned from stackSort', () => {
+  it('orinal array should be equal with the result of stackSort', () => {
     const sorted = [ ...array ].sort((a: Number, z: Number) => <number>z - <number>a);
     const sortedStack = stackSort(stack);
     expect(sortedStack.toArray()).toEqual(sorted);
