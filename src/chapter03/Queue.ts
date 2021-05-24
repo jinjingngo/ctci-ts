@@ -21,9 +21,11 @@ class QueueNode<T> {
 export default class Queue<T> {
   private first!: QueueNode<T> | undefined;
   private last!: QueueNode<T> | undefined;
+  private length: number = 0;
 
   public add(item: T): void {
     const t = new QueueNode<T>(item);
+    this.length++;
     if (this.last) {
       this.last.next = t;
     }
@@ -35,6 +37,7 @@ export default class Queue<T> {
 
   public remove(): T {
     if (!this.first) throw new Error('no such element expection');
+    this.length--;
     const data: T = this.first.data;
     this.first = this.first.next;
     if (!this.first) {
@@ -43,12 +46,16 @@ export default class Queue<T> {
     return data;
   }
 
-  public peak(): T {
+  public peek(): T {
     if (!this.first) throw new Error('no such element expection');
     return this.first.data;
   }
 
   public isEmpty(): boolean {
     return !this.first;
+  }
+
+  public size(): number {
+    return this.length;
   }
 }

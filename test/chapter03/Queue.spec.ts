@@ -14,7 +14,7 @@ describe('chapter 3 Queue', () => {
     const seeds = Array.from({ length: 100 }, _ => Math.random() * 100);
     seeds.forEach(value => queue.add(value));
     const [first] = seeds;
-    expect(queue.peak()).toBe(first);
+    expect(queue.peek()).toBe(first);
     seeds.forEach(value => expect(queue.remove()).toBe(value));
   });
 });
